@@ -10,14 +10,14 @@ class ClimateServiceTest extends AnyFunSuite {
   }
 
   test("isClimateRelated - climate related words should return true") {
-    assert(ClimateService.isClimateRelated("climate change") == true)
+    assert(ClimateService.isClimateRelated("cLimAte cHaNge") == true)
     assert(ClimateService.isClimateRelated("IPCC") == true)
   }
 
   //@TODO
   test("parseRawData") {
     // our inputs
-    val firstRecord = (2003, 1, 355.2)     //help: to acces 2003 of this tuple, you can do firstRecord._1
+    val firstRecord = (2003, 1, 355.2) //help: to acces 2003 of this tuple, you can do firstRecord._1
     val secondRecord = (2004, 1, 375.2)
     val list1 = List(firstRecord, secondRecord)
 
@@ -85,7 +85,7 @@ class ClimateServiceTest extends AnyFunSuite {
       CO2Record(2021, 3, 414.21)
     )
     val expectedOutput = (409.56, 414.21)
-    assert(ClimateService.getMinMaxByYear(list,2021) == expectedOutput)
+    assert(ClimateService.getMinMaxByYear(list, 2021) == expectedOutput)
 
     val list2 = List(
       CO2Record(2020, 6, 410.5),
@@ -94,6 +94,6 @@ class ClimateServiceTest extends AnyFunSuite {
       CO2Record(2020, 5, 520.4)
     )
     val expectedOutput2 = (410.5, 520.4)
-    assert(ClimateService.getMinMaxByYear(list2,2020) == expectedOutput2)
+    assert(ClimateService.getMinMaxByYear(list2, 2020) == expectedOutput2)
   }
 }
